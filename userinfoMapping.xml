@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.testcurd">
+  <insert id="insertBIGString" parameterType="map">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select idauto.nextval from dual
+    </selectKey>
+    insert into bigClob(id,bigstring) values(#{id},#{bigstring})
+  </insert>
+  <select id="selectById" resultType="map">
+    select * from bigclob where id = 10000
+  </select>
+</mapper>
